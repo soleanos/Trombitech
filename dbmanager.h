@@ -46,7 +46,7 @@ public:
      * @param name - name of person to add
      * @return true - person added successfully, false - person not added
      */
-    bool addPerson(const QString& name);
+    bool addCollab(const QString& nom,const QString& prenom,const QString& desc,const QString& imgUrl,const QString& motClef);
 
     /**
      * @brief Remove person data from db

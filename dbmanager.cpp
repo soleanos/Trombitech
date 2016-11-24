@@ -37,26 +37,32 @@ bool DbManager::createTable()
     bool success = false;
 
     QSqlQuery query;
-    query.prepare("CREATE TABLE people(id INTEGER PRIMARY KEY, name TEXT);");
+    query.prepare("CREATE TABLE collabs(id INTEGER PRIMARY KEY  AUTOINCREMENT  NOT NULL  UNIQUE , nom CHAR, prenom CHAR, desc CHAR, imgUrl CHAR, motClef INTEGER);");
 
     if (!query.exec())
     {
-        qDebug() << "Couldn't create the table 'people': one might already exist.";
+        qDebug() << "Couldn't create the table 'collabs': one might already exist.";
         success = false;
     }
 
     return success;
 }
 
-bool DbManager::addPerson(const QString& name)
+bool DbManager::addCollab(const QString& nom,const QString& prenom,const QString& desc,const QString& imgUrl,const QString& motClef)
 {
+   // INSERT INTO "main"."collabs" ("nom","prenom","desc","imgUrl","motClef") VALUES (?1,?2,?3,?4,?5)
+
     bool success = false;
 
-    if (!name.isEmpty())
+    if (!nom.isEmpty() || !prenom.isEmpty() )
     {
         QSqlQuery queryAdd;
-        queryAdd.prepare("INSERT INTO people (name) VALUES (:name)");
-        queryAdd.bindValue(":name", name);
+        queryAdd.prepare("INSERT INTO collabs (nom,prenom,desc,imgUrl,motClef) VALUES (:nom,:prenom,:desc,:imgUrl,:motClef)");
+        queryAdd.bindValue(":nom", nom);
+        queryAdd.bindValue(":prenom", prenom);
+        queryAdd.bindValue(":desc", desc);
+        queryAdd.bindValue(":imdUrl", imgUrl);
+        queryAdd.bindValue(":motClef", motClef);
 
         if(queryAdd.exec())
         {
