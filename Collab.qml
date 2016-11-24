@@ -19,9 +19,8 @@ Item {
         width: 600
         height: 600
         id: image
+        z:1
         source : Qt.resolvedUrl(collab.url)
-
-
     }
 
     Label {

@@ -25,6 +25,10 @@ Item {
 
     ListView{
         id:clockview
+        anchors.rightMargin: 0
+        anchors.bottomMargin: 0
+        anchors.leftMargin: 0
+        anchors.topMargin: 0
         anchors.fill:parent
         orientation: ListView.Horizontal
         cacheBuffer:2000
