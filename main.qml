@@ -15,13 +15,32 @@ Window {
         currentIndex: tabBar.currentIndex
 
         Page1 {
+            x: 0
+            y: 0
+           // myTextInput.text.toString().substring(myTextInput.selectionStart,
+               // myTextInput.selectionEnd);
         }
 
         Page {
-            Label {
-                text: qsTr("Second page")
-                anchors.centerIn: parent
+
+            TextInput {
+                id:nomInput
+                text: "Nom"
+                cursorVisible: false
             }
+
+            TextInput {
+                id:prenomInput
+                text: "Prénom"
+                cursorVisible: false
+            }
+
+            TextInput {
+                id:descInput
+                text: "Description"
+                cursorVisible: false
+            }
+
         }
     }
 
@@ -32,6 +51,8 @@ Window {
             text: qsTr("First")
         }
         TabButton {
+            x: 48
+            y: 0
             text: qsTr("Second")
         }
     }

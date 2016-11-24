@@ -10,22 +10,30 @@ Item {
         ListElement{url:"qrc:/pic2.jpg";name:"tatouage sur bras"}
     }
 
-    GridView {
-        height: parent.height; width: parent.width
-        cellWidth: parent.width/2; cellHeight: parent.height/2
-        anchors.fill: parent
+
+    Component {
+        id: picturesDelegate
+        Image{
+            id: wrapper
+            width: parent.cellWidth
+            height: parent.cellHeight
+            source : Qt.resolvedUrl(url)
+        }
+
+
+    }
+
+    ListView{
+        id:clockview
+        anchors.fill:parent
+        orientation: ListView.Horizontal
+        cacheBuffer:2000
+        snapMode:ListView.SnapOneItem
+        highlightRangeMode: ListView.ApplyRange
+
+        delegate:Collab{nom:name;url:url}
         model:localModel
 
-        delegate: picturesDelegate
 
-        Component {
-            id: picturesDelegate
-            Image{
-                id: wrapper
-                width: parent.cellWidth
-                height: parent.cellHeight
-                source : Qt.resolvedUrl(url)
-            }
-        }
     }
 }
