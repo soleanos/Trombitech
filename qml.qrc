@@ -3,8 +3,7 @@
         <file>main.qml</file>
         <file>Trombitech.sqlite</file>
         <file>Page1.qml</file>
-        <file>pic.jpg</file>
-        <file>pic2.jpg</file>
         <file>Collab.qml</file>
+        <file>Default.jpg</file>
     </qresource>
 </RCC>
