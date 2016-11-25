@@ -9,53 +9,47 @@ Window {
     width: 640
     height: 480
     title: qsTr("Trombitech")
-    Image{
-
+  SwipeView {
+        id: swipeView
         anchors.fill: parent
-        source: "qrc:/pic.jpg"
-    }
+        currentIndex: tabBar.currentIndex
 
-//    SwipeView {
-//        id: swipeView
-//        anchors.fill: parent
-//        currentIndex: tabBar.currentIndex
+        Page1 {
+            x: 0
+            y: 0
+            width: parent.width
+            height: parent.height
+           // myTextInput.text.toString().substring(myTextInput.selectionStart,
+               // myTextInput.selectionEnd);
+        }
 
-//        Page1 {
-//            x: 0
-//            y: 0
-//            width: parent.width
-//            height: parent.height
-//           // myTextInput.text.toString().substring(myTextInput.selectionStart,
-//               // myTextInput.selectionEnd);
-//        }
+        Page {
+            x: 641
+            y: 0
 
-//        Page {
-//            x: 641
-//            y: 0
+            TextInput {
+                id:nomInput
+                x: 151
+                y: 153
+                text: "Nom"
+                cursorVisible: false
+            }
 
-//            TextInput {
-//                id:nomInput
-//                x: 151
-//                y: 153
-//                text: "Nom"
-//                cursorVisible: false
-//            }
+            TextInput {
+                id:prenomInput
+                x: 152
+                y: 191
+                text: "Prénom"
+                cursorVisible: false
+            }
 
-//            TextInput {
-//                id:prenomInput
-//               // x: 152
-//                //y: 191
-//                text: "Prénom"
-//                cursorVisible: false
-//            }
-
-//            TextInput {
-//                id:descInput
-//               // x: 153
-//                //y: 232
-//                text: "Description"
-//                cursorVisible: false
-//            }
+            TextInput {
+                id:descInput
+                x: 153
+                y: 232
+                text: "Description"
+                cursorVisible: false
+            }
 
 //            Button {
 //                id: addCollab
@@ -87,7 +81,7 @@ Window {
 //            text: qsTr("Affichage")
 //        }
 //        TabButton {
-//         x: 48
+           x: 48
 //         y: 0
 //            text: qsTr("Ajout")
 //        }
