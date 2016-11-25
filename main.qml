@@ -14,10 +14,16 @@ Window {
 
     SwipeView {
         id: swipeView
+        anchors.rightMargin: 0
+        anchors.bottomMargin: 0
+        anchors.leftMargin: 0
+        anchors.topMargin: 0
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
         Page {
+            x: 0
+            y: 0
 
             TextField {
                 id:nomInput
@@ -82,10 +88,13 @@ Window {
         anchors.bottom:window.bottom
         currentIndex: swipeView.currentIndex
         TabButton {
+            width: 69
+            height: 40
             text: qsTr("Affichage")
         }
         TabButton {
-            x: 48
+            x: 66
+            y: 0
             text: qsTr("Ajout")
         }
     }
