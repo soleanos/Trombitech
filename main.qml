@@ -20,57 +20,11 @@ Window {
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
-        Page {
-            x: 0
-            y: 0
+        Ajout {
 
-            TextField {
-                id:nomInput
-                x: 213
-                y: 105
-                placeholderText:"Nom"
-                cursorVisible: false
-            }
-
-            TextField {
-                id:prenomInput
-                x: 213
-                y: 160
-                placeholderText:"Prénom"
-                cursorVisible: false
-            }
-
-           TextField {
-                id:descInput
-                x: 213
-                y: 213
-                width: 200
-                height: 64
-                placeholderText:"Description"
-                cursorVisible: false
-            }
-
-            Button {
-                id: addCollab
-                x: 245
-                y: 299
-                text: qsTr("Ajouter collaborateur")
-
-                MouseArea{
-                    id: buttonMouseArea
-                    anchors.rightMargin: -1
-                    anchors.bottomMargin: 0
-                    anchors.leftMargin: 1
-                    anchors.topMargin: 0
-                    anchors.fill: parent
-                    onClicked: affichage.model.insert(0,{"url": "qrc:/Default.jpg", "name":nomInput.text,"firstName":prenomInput.text});
-                }
-
-           }
         }
 
-
-        Page1 {
+        Affichage {
             id:affichage
             width: 489
             height: 480
