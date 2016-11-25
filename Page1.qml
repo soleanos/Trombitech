@@ -4,10 +4,12 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.0
 
 Item {
+    property var model : localModel
+
     ListModel {
         id:localModel
-        ListElement{url:"qrc:/pic.jpg";name:"tatouage"}
-        ListElement{url:"qrc:/pic2.jpg";name:"tatouage sur bras"}
+        ListElement{url:"qrc:/Default.jpg";name:"Dupond";firstName:"Philippe"}
+        ListElement{url:"qrc:/Default.jpg";name:"Rodibon";firstName:"Roger"}
     }
 
 
@@ -30,7 +32,7 @@ Item {
         cacheBuffer:2000
         snapMode:ListView.SnapOneItem
         highlightRangeMode: ListView.ApplyRange
-        delegate:Collab{nom:name;url2:url}
+        delegate:Collab{nom:name;url2:url;prenom:firstName}
         model:localModel
         clip:true
     }

@@ -8,6 +8,8 @@ Window {
     visible: true
     width: 640
     height: 480
+    maximumWidth: 640
+    maximumHeight: 480
     title: qsTr("Trombitech")
 
     SwipeView {
@@ -15,67 +17,68 @@ Window {
         anchors.fill: parent
         currentIndex: tabBar.currentIndex
 
-        Page1 {
-            x: 0
-            y: 0
-            width: 489
-            height: 480
-           // myTextInput.text.toString().substring(myTextInput.selectionStart,
-               // myTextInput.selectionEnd);
-        }
-
         Page {
-            x: 641
-            y: 0
 
-            TextInput {
+            TextField {
                 id:nomInput
-                x: 151
-                y: 153
-                text: "Nom"
+                x: 213
+                y: 105
+                placeholderText:"Nom"
                 cursorVisible: false
             }
 
-            TextInput {
+            TextField {
                 id:prenomInput
-                x: 152
-                y: 191
-                text: "Prénom"
+                x: 213
+                y: 160
+                placeholderText:"Prénom"
                 cursorVisible: false
             }
 
-            TextInput {
+           TextField {
                 id:descInput
-                x: 153
-                y: 232
-                text: "Description"
+                x: 213
+                y: 213
+                width: 200
+                height: 64
+                placeholderText:"Description"
                 cursorVisible: false
             }
 
             Button {
                 id: addCollab
-                x: 244
-                y: 283
+                x: 245
+                y: 299
                 text: qsTr("Ajouter collaborateur")
 
                 MouseArea{
                     id: buttonMouseArea
-
-                    anchors.fill: parent //anchor all sides of the mouse area to the rectangle's anchors
-                            //onClicked handles valid mouse button clicks
-                    onClicked: console.log("Le collab " + prenomInput.text + " "  + nomInput.text+ " viens d'être ajouté" );
-
+                    anchors.rightMargin: -1
+                    anchors.bottomMargin: 0
+                    anchors.leftMargin: 1
+                    anchors.topMargin: 0
+                    anchors.fill: parent
+                    onClicked: affichage.model.insert(0,{"url": "qrc:/Default.jpg", "name":nomInput.text,"firstName":prenomInput.text});
                 }
 
             }
 
         }
+
+
+        Page1 {
+            id:affichage
+            width: 489
+            height: 480
+        }
     }
 
     TabBar {
         id: tabBar
-        x: 192
-        y: 416
+        x: 266
+        y: 397
+        width: 108
+        height: 39
         anchors.bottom:window.bottom
         currentIndex: swipeView.currentIndex
         TabButton {
@@ -83,7 +86,6 @@ Window {
         }
         TabButton {
             x: 48
-            y: 0
             text: qsTr("Ajout")
         }
     }
