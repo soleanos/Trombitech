@@ -7,25 +7,25 @@ Column {
 
     id:collab
     visible: true
-    width: 600
-    height: 600
+   // width: parent.width
+   // height: parent.height
     // anchors.fill:parent
 
     property string nom
     property string url2
     Image {
 
-        //     anchors.centerIn: parent
-        width: parent.width
-        height: 400
+        //    anchors.centerIn: parent
+      width: parent.width
+       height: parent.height
         fillMode:Image.PreserveAspectCrop
         id: image
         source : Qt.resolvedUrl(collab.url2)
     }
 
     Label {
-        width: parent.width
-        height: 200
+       width: parent.width
+        height: paren.height
         id:nomLabel
         text: qsTr(collab.nom)
         //anchors.centerIn:rectLabel

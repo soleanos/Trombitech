@@ -1,6 +1,6 @@
 TEMPLATE = app
-
-QT += qml quick
+TARGET = Trombitech
+QT += qml quick quickcontrols2
 CONFIG += c++11
 QT += core sql
 
