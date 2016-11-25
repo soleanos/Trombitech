@@ -25,19 +25,15 @@ Item {
 
     ListView{
         id:clockview
-        anchors.rightMargin: 0
-        anchors.bottomMargin: 0
-        anchors.leftMargin: 0
-        anchors.topMargin: 0
         anchors.fill:parent
-        orientation: ListView.Horizontal
+        //orientation: ListView.Vertical
         cacheBuffer:2000
         snapMode:ListView.SnapOneItem
         highlightRangeMode: ListView.ApplyRange
-
-        delegate:Collab{nom:name;url:url}
+        delegate:Collab{nom:name;url2:url}
         model:localModel
-
-
+        clip:true
     }
+
 }
+
